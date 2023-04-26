@@ -1,5 +1,7 @@
 import Header from "./components/Layout/Header";
 import Summary from "./components/Meals/Summary";
+// import Meals from "./components/Meals/Meals";
+import Meals from "./components/Meals/Meals";
 
 function App() {
 
@@ -7,6 +9,7 @@ function App() {
     <div>
       <Header/>
       <Summary/>
+      <Meals/>
     </div>
   );
 }
