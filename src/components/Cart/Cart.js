@@ -1,14 +1,23 @@
 // import { createPortal } from 'react-dom';
 import Modal from "../UI/Modal"
+import cartContext from "../../store/cart-context"
+import { useContext } from "react"
+
 
 function Cart(props){
+
+    const ctx=useContext(cartContext)
+    console.log(ctx)
+
     const cartItems=<ul>
-        {[{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item)=><li>{item.name}</li>)}
+        {ctx.cartState.items.map((item)=><li>{item.name}</li>)}
     </ul>
 
     const hideCart=()=>{
         props.hideCart()
     }
+
+    
 
     return(
         <Modal>
@@ -16,7 +25,7 @@ function Cart(props){
                 {cartItems}
                 <div>
                     <span>Total</span>
-                    <span>35.62</span>
+                    <span> {ctx.cartState.totalAmount}</span>
                 </div>
                 <div>
                     <button onClick={hideCart}>Close</button>
